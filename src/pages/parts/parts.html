@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>The parts</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <h3>Welcome to your Kwad Configurator</h3>
+
+    <p>
+      You can chose here all the parts you need to build the kwad of your dreams
+    </p>
+    <p>
+      Let's get started !
+    </p>
+    <p>
+      <button ion-button block color="primary" (click)="toMotors()">Motors</button>
+    </p>
+    <p>
+        <button ion-button block color="secondary" (click)="toFrames()">Frames</button>
+      </p>
+</ion-content>

@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Frames</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <h3>Welcome to the frames tab</h3>
+
+    <p>
+      You can chose here all the frames you need to build the kwad of your dreams
+    </p>
+    <p>
+      Let's make a choice !
+    </p>
+    
+    <ion-list>
+        <ion-item *ngFor="let frame of frames | async" (click)="showOptions($event, frame)">
+          <tr>
+            <td><img src="{{frame.image}}" class="imageMiniature"></td>
+  
+            <td><p>Brand : {{frame.brand}}</p>
+              <p>model : {{frame.model}}</p> </td>
+          <tr>
+  
+          </tr>
+          <!-- <p>Brand : {{motor.brand}} </p>
+          <p>model : {{motor.model}} </p> -->
+        </ion-item>
+      </ion-list>
+
+</ion-content>

@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Motors</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <h3>Welcome to the motors tab</h3>
+
+    <p>
+      You can chose here all the motors you need to build the kwad of your dreams
+    </p>
+    <p>
+      Let's make a choice !
+    </p>
+    <!-- <p>
+      <button ion-button block color="primary" (click)="toMotors()">Motors</button>
+    </p> -->
+    <ion-list>
+      <ion-item *ngFor="let motor of motors | async" (click)="showOptions($event, motor)">
+        <tr>
+          <td><img src="{{motor.image}}" class="imageMiniature"></td>
+
+          <td><p>Brand : {{motor.brand}}</p>
+            <p>model : {{motor.model}}</p> </td>
+        <tr>
+
+        </tr>
+        <!-- <p>Brand : {{motor.brand}} </p>
+        <p>model : {{motor.model}} </p> -->
+      </ion-item>
+    </ion-list>
+</ion-content>

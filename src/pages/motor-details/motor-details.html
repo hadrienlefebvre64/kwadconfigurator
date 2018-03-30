@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <button menuToggle *ngIf="!selectedItem">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Motor Details</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <h2 text-center><U>Your choice </U></h2>
+  <h4 text-center *ngIf="selectedItem">Brand : 
+    {{selectedItem.brand}}
+    <ion-icon [name]="selectedItem.icon"></ion-icon>
+  </h4>
+  <h4 text-center *ngIf="selectedItem">Model : 
+      {{selectedItem.model}}
+      <ion-icon [name]="selectedItem.icon"></ion-icon>
+  </h4>
+  <h4 text-center *ngIf="selectedItem">Size : 
+      {{selectedItem.size}}
+      <ion-icon [name]="selectedItem.icon"></ion-icon>
+  </h4>
+  <h4 text-center *ngIf="selectedItem">KVs : 
+      {{selectedItem.kv}}
+      <ion-icon [name]="selectedItem.icon"></ion-icon>
+  </h4>
+  <img src="{{selectedItem.image}}" class="imageDetail">
+  <button ion-button round class="buttonAdd" (click)="addMotor()">Add to my configuration</button>
+</ion-content>
