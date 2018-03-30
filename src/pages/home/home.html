@@ -1,14 +1,14 @@
 <ion-header>
     <ion-navbar>
-      <button ion-button menuToggle>
+      <!-- <button ion-button menuToggle>
         <ion-icon name="menu"></ion-icon>
-      </button>
+      </button> -->
       <ion-title>Kwad Configurator</ion-title>
     </ion-navbar>
   </ion-header>
   
   
-  <ion-content padding>
+  <ion-content padding class="textCentre">
   
     <h3>Welcome to the Kwad Configurator App !</h3>
   
@@ -19,7 +19,7 @@
       Are you ready ?
     </p>
     <p>
-      <button ion-button color="primary" menuToggle>Let's go</button>
+      <button ion-button color="primary" (click)="toParts()" class="buttonCentre">Let's go</button>
     </p>
   
   </ion-content>
