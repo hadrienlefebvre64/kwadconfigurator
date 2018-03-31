@@ -23,6 +23,10 @@ export class ConfigPage {
 
   }
 
+refreshPage() {
+  this.navCtrl.setRoot(this.navCtrl.getActive().component);
+ }
+
 deleteMotor(){
   this.storage.remove('motorBrand');
   this.storage.remove('motorModel');
