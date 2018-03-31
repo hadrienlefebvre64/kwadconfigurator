@@ -26,5 +26,5 @@
       <ion-icon [name]="selectedItem.icon"></ion-icon>
   </h4>
   <img src="{{selectedItem.image}}" class="imageDetail">
-  <button ion-button round class="buttonAdd" (click)="addMotor()">Add to my configuration</button>
+  <button ion-button round class="buttonAdd" (click)="addMotor(selectedItem.brand, selectedItem.model)">Add to my configuration</button>
 </ion-content>

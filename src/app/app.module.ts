@@ -15,6 +15,8 @@ import { ConfigPage } from '../pages/config/config';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { IonicStorageModule } from '@ionic/storage';
+import { Storage } from '@ionic/storage';
+import { EmailComposer } from '@ionic-native/email-composer'
 
 // Import the AF2 Module
 import { AngularFireModule } from 'angularfire2';
@@ -68,6 +70,8 @@ export const firebaseConfig = {
   providers: [
     StatusBar,
     SplashScreen,
+    IonicStorageModule,
+    EmailComposer,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
