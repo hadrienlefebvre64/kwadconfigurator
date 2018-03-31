@@ -3,6 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import { NavController, NavParams, App, ActionSheetController } from 'ionic-angular';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { FrameDetailsPage } from '../frame-details/frame-details';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'page-frames',
@@ -14,7 +15,8 @@ export class FramesPage implements OnInit{
 
   frames: Observable<any[]>;
 
-  constructor(public navCtrl: NavController, public actionSheetCtrl: ActionSheetController,public navParams: NavParams, public app: App, private afDatabase: AngularFireDatabase) {
+  constructor(public navCtrl: NavController, public actionSheetCtrl: ActionSheetController,public navParams: NavParams,
+     public app: App, private afDatabase: AngularFireDatabase, private storage: Storage) {
     
   }
 
@@ -41,7 +43,7 @@ export class FramesPage implements OnInit{
         },{
           text: 'Add to configuration',
           handler: () => {
-            //this.updateSong(songId, songTitle, songArtist);
+            this.addFrame(frame.brand,frame.model);
           }
         },{
           text: 'Cancel',
@@ -53,6 +55,16 @@ export class FramesPage implements OnInit{
       ]
     });
     actionSheet.present();
+  }
+
+  addFrame(brand, model){
+    this.storage.ready().then(() => {
+      this.storage.remove('frameBrand');
+      this.storage.set('frameBrand', brand);
+      this.storage.remove('frameModel');
+      this.storage.set('frameModel', model);
+      alert("Frame added to configuration")
+    });
   }
 
 }

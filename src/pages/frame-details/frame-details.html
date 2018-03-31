@@ -25,5 +25,6 @@
       {{selectedItem.weight}}
   </h4>
   <img src="{{selectedItem.image}}" class="imageDetail">
-  <button ion-button round class="buttonAdd">Add to my configuration</button>
+  <button ion-button round class="buttonAdd" (click)="addFrame(selectedItem.brand, selectedItem.model)">Add to my configuration</button>
+
 </ion-content>

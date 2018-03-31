@@ -16,6 +16,8 @@ export class ConfigPage {
 
   selectedMotorBrand: null;
   selectedMotorModel: null;
+  selectedFrameBrand: null;
+  selectedFrameModel: null;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage, private emailComposer: EmailComposer) {
 
@@ -27,15 +29,30 @@ deleteMotor(){
   //ionViewWillEnter();
 }
 
+deleteFrame(){
+  this.storage.remove('frameBrand');
+  this.storage.remove('frameModel');
+  //ionViewWillEnter();
+}
+
 ionViewWillEnter() { // THERE IT IS!!!
   this.storage.ready().then(() => {
 
     // get value 
+    //Motors
     this.storage.get('motorBrand').then((val) => {
       this.selectedMotorBrand = val;
     })
     this.storage.get('motorModel').then((val) => {
       this.selectedMotorModel = val;
+    })
+
+    //Frames
+    this.storage.get('frameBrand').then((val) => {
+      this.selectedFrameBrand = val;
+    })
+    this.storage.get('frameModel').then((val) => {
+      this.selectedFrameModel = val;
     })
 });
 }
