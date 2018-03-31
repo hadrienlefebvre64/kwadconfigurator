@@ -16,6 +16,7 @@ export class ConfigPage {
 
   selectedMotorBrand: null;
   selectedMotorModel: null;
+  selectedMotorImage: null;
   selectedFrameBrand: null;
   selectedFrameModel: null;
 
@@ -30,6 +31,7 @@ refreshPage() {
 deleteMotor(){
   this.storage.remove('motorBrand');
   this.storage.remove('motorModel');
+  this.storage.remove('motorImage');
   //ionViewWillEnter();
 }
 
@@ -49,6 +51,9 @@ ionViewWillEnter() { // THERE IT IS!!!
     })
     this.storage.get('motorModel').then((val) => {
       this.selectedMotorModel = val;
+    })
+    this.storage.get('motorImage').then((val) => {
+      this.selectedMotorImage = val;
     })
 
     //Frames

@@ -16,13 +16,15 @@ export class MotorDetailsPage {
     this.selectedItem = navParams.get('item');
   }
 
-  addMotor(brand, model){
+  addMotor(brand, model, image){
     this.storage.ready().then(() => {
       this.storage.remove('motorBrand');
       this.storage.set('motorBrand', brand);
       this.storage.remove('motorModel');
       this.storage.set('motorModel', model);
-      alert("Motor added to configuration")
+      this.storage.remove('motorImage');
+      this.storage.set('motorImage', image);
+      alert("Motor added to configuration");
     });
     
   }

@@ -51,7 +51,7 @@ export class MotorsPage implements OnInit{
         },{
           text: 'Add to configuration',
           handler: () => {
-            this.addMotor(motor.brand,motor.model);
+            this.addMotor(motor.brand,motor.model, motor.image);
           }
         },{
           text: 'Cancel',
@@ -65,13 +65,15 @@ export class MotorsPage implements OnInit{
     actionSheet.present();
   }
 
-  addMotor(brand, model){
+  addMotor(brand, model, image){
     this.storage.ready().then(() => {
       this.storage.remove('motorBrand');
       this.storage.set('motorBrand', brand);
       this.storage.remove('motorModel');
       this.storage.set('motorModel', model);
-      alert("Motor added to configuration")
+      this.storage.remove('motorImage');
+      this.storage.set('motorImage', image);
+      alert("Motor added to configuration");
     });
   }
   
