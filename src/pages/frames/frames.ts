@@ -43,7 +43,7 @@ export class FramesPage implements OnInit{
         },{
           text: 'Add to configuration',
           handler: () => {
-            this.addFrame(frame.brand,frame.model);
+            this.addFrame(frame.brand,frame.model, frame.image);
           }
         },{
           text: 'Cancel',
@@ -57,12 +57,14 @@ export class FramesPage implements OnInit{
     actionSheet.present();
   }
 
-  addFrame(brand, model){
+  addFrame(brand, model, image){
     this.storage.ready().then(() => {
       this.storage.remove('frameBrand');
       this.storage.set('frameBrand', brand);
       this.storage.remove('frameModel');
       this.storage.set('frameModel', model);
+      this.storage.remove('frameImage');
+      this.storage.set('frameImage', image);
       alert("Frame added to configuration")
     });
   }

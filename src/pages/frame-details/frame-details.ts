@@ -15,13 +15,15 @@ export class FrameDetailsPage {
     this.selectedItem = navParams.get('item');
   }
 
-  addFrame(brand, model){
+  addFrame(brand, model, image){
     this.storage.ready().then(() => {
       this.storage.remove('frameBrand');
       this.storage.set('frameBrand', brand);
       this.storage.remove('frameModel');
       this.storage.set('frameModel', model);
-      alert("Frame added to configuration")
+      this.storage.remove('frameImage');
+      this.storage.set('frameImage', image);
+      alert("Motor added to configuration");
     });
   }
 

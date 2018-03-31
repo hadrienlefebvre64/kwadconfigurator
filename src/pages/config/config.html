@@ -17,11 +17,20 @@
 
         <td><p>{{selectedMotorBrand}}</p>
           <p>{{selectedMotorModel}}</p> </td>
-          <td><button ion-button color="danger" (click)="deleteMotor()">Delete</button></td>
+          <td><button ion-button round color="danger" (click)="deleteMotor()" class="buttonRight">Delete</button></td>
       <tr>
     </h4>
     
-    <h4><U>Frame :</U> {{selectedFrameBrand}} - {{selectedFrameModel}} <button ion-button color="danger" (click)="deleteFrame()">Delete</button></h4> 
-    <button ion-button block color="orange" (click)="refreshPage()">Refresh page</button>
+    <h4><U>Frame :</U> 
+      <tr>
+        <td><img src="{{selectedFrameImage}}" class="imageMiniature"></td>
+
+        <td><p>{{selectedFrameBrand}}</p>
+          <p>{{selectedFrameModel}}</p> </td>
+          <td><button ion-button round color="danger" (click)="deleteFrame()" class="buttonRight">Delete</button></td>
+      <tr>
+    </h4>
+    <!-- <h4><U>Frame :</U> {{selectedFrameBrand}} - {{selectedFrameModel}} <button ion-button color="danger" (click)="deleteFrame()">Delete</button></h4> 
+ -->    <button ion-button block color="orange" (click)="refreshPage()" class="buttonRight">Refresh page</button>
     <button ion-button block color="primary" (click)="sendMail()">Send By Mail</button>
 </ion-content>

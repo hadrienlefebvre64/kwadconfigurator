@@ -14,11 +14,14 @@ export class ConfigPage {
   
   //public local:Storage;
 
+  //Variables Motors
   selectedMotorBrand: null;
   selectedMotorModel: null;
   selectedMotorImage: null;
+  //Variables frames
   selectedFrameBrand: null;
   selectedFrameModel: null;
+  selectedFrameImage: null;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage, private emailComposer: EmailComposer) {
 
@@ -38,6 +41,7 @@ deleteMotor(){
 deleteFrame(){
   this.storage.remove('frameBrand');
   this.storage.remove('frameModel');
+  this.storage.remove('frameImage');
   //ionViewWillEnter();
 }
 
@@ -62,6 +66,9 @@ ionViewWillEnter() { // THERE IT IS!!!
     })
     this.storage.get('frameModel').then((val) => {
       this.selectedFrameModel = val;
+    })
+    this.storage.get('frameImage').then((val) => {
+      this.selectedFrameImage = val;
     })
 });
 }
