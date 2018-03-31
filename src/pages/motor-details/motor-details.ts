@@ -17,15 +17,12 @@ export class MotorDetailsPage {
   }
 
   addMotor(brand, model){
-    
-    alert("Brand recup " + brand);
-
     this.storage.ready().then(() => {
       this.storage.remove('motorBrand');
       this.storage.set('motorBrand', brand);
       this.storage.remove('motorModel');
       this.storage.set('motorModel', model);
-      alert("Item in storage :" + this.storage.get('motor'));
+      alert("Motor added to configuration")
     });
     
   }

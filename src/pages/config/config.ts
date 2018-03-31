@@ -17,26 +17,27 @@ export class ConfigPage {
   selectedMotorBrand: null;
   selectedMotorModel: null;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, storage: Storage, private emailComposer: EmailComposer) {
-
-    storage.ready().then(() => {
-
-      // get value 
-      storage.get('motorBrand').then((val) => {
-        alert("Item in storage :" + val);
-        this.selectedMotorBrand = val;
-      })
-      storage.get('motorModel').then((val) => {
-        alert("Item in storage :" + val);
-        this.selectedMotorModel = val;
-      })
- });
+  constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage, private emailComposer: EmailComposer) {
 
   }
 
 deleteMotor(){
-  //this.('motorBrand');
-  //this.storage.remove('motorModel');
+  this.storage.remove('motorBrand');
+  this.storage.remove('motorModel');
+  //ionViewWillEnter();
+}
+
+ionViewWillEnter() { // THERE IT IS!!!
+  this.storage.ready().then(() => {
+
+    // get value 
+    this.storage.get('motorBrand').then((val) => {
+      this.selectedMotorBrand = val;
+    })
+    this.storage.get('motorModel').then((val) => {
+      this.selectedMotorModel = val;
+    })
+});
 }
 
   /* this.emailComposer.isAvailable().then((available: boolean) =>{
