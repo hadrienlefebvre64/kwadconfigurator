@@ -4,6 +4,7 @@ import { NavController, NavParams, App, ActionSheetController } from 'ionic-angu
 import { Observable } from 'rxjs/Observable';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { MotorDetailsPage } from '../motor-details/motor-details';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'page-motors',
@@ -15,7 +16,8 @@ export class MotorsPage implements OnInit{
 
   motors: Observable<any[]>;
 
-  constructor(public navCtrl: NavController, public actionSheetCtrl: ActionSheetController,public navParams: NavParams, public app: App, private afDatabase: AngularFireDatabase) {
+  constructor(public navCtrl: NavController, public actionSheetCtrl: ActionSheetController,public navParams: NavParams,
+     public app: App, private afDatabase: AngularFireDatabase, private storage: Storage) {
     
   }
 
@@ -49,7 +51,7 @@ export class MotorsPage implements OnInit{
         },{
           text: 'Add to configuration',
           handler: () => {
-            //this.updateSong(songId, songTitle, songArtist);
+            this.addMotor(motor.brand,motor.model);
           }
         },{
           text: 'Cancel',
@@ -63,5 +65,14 @@ export class MotorsPage implements OnInit{
     actionSheet.present();
   }
 
+  addMotor(brand, model){
+    this.storage.ready().then(() => {
+      this.storage.remove('motorBrand');
+      this.storage.set('motorBrand', brand);
+      this.storage.remove('motorModel');
+      this.storage.set('motorModel', model);
+      alert("Motor added to configuration")
+    });
+  }
   
 }
